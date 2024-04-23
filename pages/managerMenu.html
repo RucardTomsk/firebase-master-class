@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Управление блюдами</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div id="userPanel" class="text-end">
+  <span id="userName"></span>
+  <button type="button" onclick="logout()" class="btn btn-secondary">Выйти</button>
+</div>
+<div class="container mt-5">
+  <h1>Управление блюдами</h1>
+  <!-- Форма для добавления нового блюда -->
+  <form class="mb-3">
+    <h2>Добавить новое блюдо</h2>
+    <div class="mb-3">
+      <label for="dishName" class="form-label">Название блюда</label>
+      <input type="text" class="form-control" id="dishName" required>
+    </div>
+    <div class="mb-3">
+      <label for="dishIngredients" class="form-label">Ингредиенты</label>
+      <input type="text" class="form-control" id="dishIngredients" placeholder="Перечислите ингредиенты через запятую" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Добавить блюдо</button>
+  </form>
+
+  <!-- Таблица для отображения и редактирования существующих блюд -->
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Название блюда</th>
+      <th scope="col">Ингредиенты</th>
+      <th scope="col">Действия</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Пример блюда -->
+    <tr>
+      <th scope="row">1</th>
+      <td>Цезарь</td>
+      <td>Курица, салат, сыр, соус</td>
+      <td>
+        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editDishModal">Редактировать</button>
+        <button class="btn btn-danger btn-sm">Удалить</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!-- Модальное окно для редактирования блюда -->
+  <div class="modal fade" id="editDishModal" tabindex="-1" aria-labelledby="editDishModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editDishModalLabel">Редактировать блюдо</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="editDishName" class="form-label">Название блюда</label>
+              <input type="text" class="form-control" id="editDishName" required>
+            </div>
+            <div class="mb-3">
+              <label for="editDishIngredients" class="form-label">Ингредиенты</label>
+              <input type="text" class="form-control" id="editDishIngredients" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Подключение JavaScript Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module" src="../js/menu.js"></script>
+</body>
+</html>

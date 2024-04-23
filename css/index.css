@@ -1,0 +1,14 @@
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+.blinking-text {
+    font-size: 40px;
+    color: green;
+    animation: blink 1s linear infinite;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
